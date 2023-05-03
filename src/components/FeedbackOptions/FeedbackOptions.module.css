@@ -1,0 +1,28 @@
+.btnWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn {
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.good {
+  background-color: green;
+}
+
+.neutral {
+  background-color: orange;
+}
+
+.bad {
+  background-color: red;
+}

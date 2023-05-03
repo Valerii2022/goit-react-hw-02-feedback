@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Statistics from './Statistics';
+import Section from './Section';
+import FeedbackOptions from './FeedbackOptions';
 
 class App extends Component {
   state = {
@@ -30,8 +32,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>Please leave feedback</h1>
-        <button id="good" onClick={this.handleIncrement}>
+        
+          <Section title="Please leave feedback">
+             <FeedbackOptions onLeaveFeedback={this.handleIncrement}/>
+        {/* <button id="good" onClick={this.handleIncrement}>
           Good
         </button>
         <button id="neutral" onClick={this.handleIncrement}>
@@ -39,14 +43,17 @@ class App extends Component {
         </button>
         <button id="bad" onClick={this.handleIncrement}>
           Bad
-        </button>
-        <Statistics
-          good={this.state.good}
-          neutral={this.state.neutral}
-          bad={this.state.bad}
-          total={this.countTotalFeedback()}
-          percentage={this.countPositiveFeedbackPercentage()}
-        />
+          </button> */}
+        </Section>
+        <Section title="Statistics">
+          <Statistics
+            good={this.state.good}
+            neutral={this.state.neutral}
+            bad={this.state.bad}
+            total={this.countTotalFeedback()}
+            percentage={this.countPositiveFeedbackPercentage()}
+          />
+        </Section>
       </div>
     );
   }
@@ -54,15 +61,4 @@ class App extends Component {
 
 export default App;
 
-// -------------------------------------------statistics
-// {
-/* <h2>Statistics</h2>
-        <p>Good: {this.state.good}</p>
-        <p>Neutral: {this.state.neutral}</p>
-        <p>Bad: {this.state.bad}</p>
-        <p>Total: {this.countTotalFeedback()}</p>
 
-        {this.countTotalFeedback() > 0 && (
-          <p>Positive feedback: {this.countPositiveFeedbackPercentage()}%</p>
-        )} */
-// }
