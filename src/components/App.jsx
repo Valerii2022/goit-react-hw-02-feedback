@@ -30,28 +30,21 @@ class App extends Component {
   };
 
   render() {
+    const { good, neutral, bad } = this.state;
+    const total = this.countTotalFeedback();
+    const percentage = this.countPositiveFeedbackPercentage();
     return (
       <div>
-        
-          <Section title="Please leave feedback">
-             <FeedbackOptions onLeaveFeedback={this.handleIncrement}/>
-        {/* <button id="good" onClick={this.handleIncrement}>
-          Good
-        </button>
-        <button id="neutral" onClick={this.handleIncrement}>
-          Neutral
-        </button>
-        <button id="bad" onClick={this.handleIncrement}>
-          Bad
-          </button> */}
+        <Section title="Please leave feedback">
+          <FeedbackOptions onLeaveFeedback={this.handleIncrement} />
         </Section>
         <Section title="Statistics">
           <Statistics
-            good={this.state.good}
-            neutral={this.state.neutral}
-            bad={this.state.bad}
-            total={this.countTotalFeedback()}
-            percentage={this.countPositiveFeedbackPercentage()}
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={total}
+            percentage={percentage}
           />
         </Section>
       </div>
@@ -60,5 +53,3 @@ class App extends Component {
 }
 
 export default App;
-
-
